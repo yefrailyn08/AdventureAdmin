@@ -15,6 +15,8 @@ namespace AdventureAdmin;
 
 static class Program
 {
+
+// Para probar el commit
     public static ServiceProvider ServiceProvider { get; private set; }
     /// <summary>
     ///  The main entry point for the application.
