@@ -14,10 +14,13 @@ namespace AdventureAdmin.Ui.Culture
         {
             InitializeComponent();
         }
+<<<<<<< issue/16_culture
+=======
 
         private void CultureForm_Load(object sender, EventArgs e)
         {
 
         }
+>>>>>>> master
     }
 }
