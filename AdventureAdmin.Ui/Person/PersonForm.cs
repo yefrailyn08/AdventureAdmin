@@ -137,7 +137,7 @@ public partial class PersonForm : Form
         AplicarCampos(p);
         p.ModifiedDate = DateTime.Now;
 
-        await _service.Guardar(p); // si agregas Update, cambia aquí
+        await _service.Guardar(p); // si agrego Update, cambio aquí
     }
 
     private void AplicarCampos(AdventureAdmin.Data.Models.Person p)
