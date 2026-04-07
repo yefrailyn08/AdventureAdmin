@@ -3,6 +3,7 @@ using AdventureAdmin.Ui;
 using AdventureAdmin.Ui.CreditCard;
 using AdventureAdmin.Ui.Department;
 using AdventureAdmin.Ui.Location;
+using AdventureAdmin.Ui.ContactType;
 using AdventureAdmin.Ui.Person;
 using AdventureAdmin.Ui.Product;
 using AdventureAdmin.Ui.ProductCategory;
@@ -56,6 +57,8 @@ static class Program
         services.AddTransient<CreditCardForm>();
         services.AddTransient<LocationList>();
         services.AddTransient<LocationForm>();
+        services.AddTransient<ContactTypeList>();
+        services.AddTransient<ContactTypeForm>();
         services.AddTransient<DepartmentList>();
         services.AddTransient<DepartmentForm>();
         services.AddTransient<ProductDescriptionList>();
@@ -68,9 +71,11 @@ static class Program
         services.AddTransient<CultureList>();
       
         //Services 
+        services.AddTransient<CreditCardService>();
+        services.AddTransient<PersonService>();
+        services.AddTransient<DepartmentService>();
         //services.AddTransient<CreditCardService>();
         //services.AddTransient<ProductCategoryService>();
-        //services.AddTransient<DepartmentService>();
         //services.AddTransient<CurrencyService>();
         //services.AddTransient<ShiftService>();
         //services.AddTransient<CountryRegionService>();

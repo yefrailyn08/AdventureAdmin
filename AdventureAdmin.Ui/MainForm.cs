@@ -1,6 +1,8 @@
 using AdventureAdmin.Ui.Department;
 using AdventureAdmin.Ui.CreditCard;
 using AdventureAdmin.Ui.Location;
+using AdventureAdmin.Data.Models;
+using AdventureAdmin.Ui.ContactType;
 using AdventureAdmin.Ui.Product;
 using AdventureAdmin.Ui.ProductCategory;
 using Microsoft.Extensions.DependencyInjection;
@@ -109,7 +111,13 @@ public partial class MainForm : Form
 
     private void contactTypeToolStripMenuItem_Click(object sender, EventArgs e)
     {
+        /*
+         * var productList = Program.ServiceProvider.GetRequiredService<ProductList>();
+        productList.Show();
+         */
 
+        var contactTypeList = Program.ServiceProvider.GetRequiredService<ContactTypeList>();
+        contactTypeList.Show();
     }
 
     private void scrapReasonToolStripMenuItem_Click(object sender, EventArgs e)
