@@ -43,6 +43,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(797, 357);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
@@ -51,7 +52,7 @@
             button1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Location = new Point(12, 48);
             button1.Name = "button1";
-            button1.Size = new Size(106, 30);
+            button1.Size = new Size(151, 50);
             button1.TabIndex = 1;
             button1.Text = "✚ Nuevo";
             button1.UseVisualStyleBackColor = false;
@@ -91,7 +92,7 @@
             // 
             // DepartmentList
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnEliminar);
@@ -99,6 +100,7 @@
             Controls.Add(btnModificar);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "DepartmentList";
             Text = "Departamentos";
             Load += DepartmentList_Load;
