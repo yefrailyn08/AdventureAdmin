@@ -13,7 +13,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout código
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup .NET
