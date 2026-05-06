@@ -17,14 +17,24 @@ public class CultureService(
         return cantidad > 0;
     }
 
-    public Task<Data.Models.Culture?> Buscar(string id)
+    public async Task<Data.Models.Culture?> Buscar(string id)
     {
-        throw new NotImplementedException();
+        return await context.Cultures
+                   .FirstOrDefaultAsync(c => c.CultureId == id);
     }
 
-    public Task<bool> Eliminar(string id)
+    public async Task<bool> Eliminar(string id)
     {
-        throw new NotImplementedException();
+        var culture = await context.Cultures
+                    .FirstOrDefaultAsync(c => c.CultureId == id);
+
+        if (culture == null)
+            return false;
+
+        context.Cultures.Remove(culture);
+        var cantidad = await context.SaveChangesAsync();
+
+        return cantidad > 0;
     }
 
     public async Task<List<Data.Models.Culture>> GetList(Expression<Func<Data.Models.Culture, bool>> criterio)
