@@ -8,11 +8,30 @@ namespace AdventureAdmin.Ui.ProductCategory
     public partial class ProductCategoryForm : Form
     {
         private readonly ProductCategoryService _productCategoryService;
+        private readonly Data.Models.ProductCategory? _categoria;
 
         public ProductCategoryForm(ProductCategoryService productCategoryService)
+            : this(productCategoryService, null)
+        {
+        }
+
+        public ProductCategoryForm(ProductCategoryService productCategoryService, Data.Models.ProductCategory? categoria)
         {
             InitializeComponent();
             _productCategoryService = productCategoryService;
+            _categoria = categoria;
+
+            if (_categoria != null)
+            {
+                CargarDatos(_categoria);
+            }
+        }
+
+        private void CargarDatos(Data.Models.ProductCategory categoria)
+        {
+            txtName.Text = categoria.Name;
+            dtpModifiedDate.Value = categoria.ModifiedDate;
+            this.Text = $"Editar Categoría – {categoria.Name}";
         }
 
         private async void btnGuardar_Click(object sender, EventArgs e)
@@ -27,14 +46,16 @@ namespace AdventureAdmin.Ui.ProductCategory
 
             try
             {
-                var nuevaCategoria = new Data.Models.ProductCategory
+                var categoria = _categoria ?? new Data.Models.ProductCategory
                 {
-                    Name = txtName.Text,
                     Rowguid = Guid.NewGuid(),
                     ModifiedDate = DateTime.Now
                 };
 
-                var paso = await _productCategoryService.Guardar(nuevaCategoria);
+                categoria.Name = txtName.Text;
+                categoria.ModifiedDate = DateTime.Now;
+
+                var paso = await _productCategoryService.Guardar(categoria);
 
                 if (!paso)
                 {
@@ -43,8 +64,8 @@ namespace AdventureAdmin.Ui.ProductCategory
                 }
                 else
                 {
-                    MessageBox.Show("Categoría guardada correctamente", "Éxito", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    var mensaje = _categoria == null ? "Categoría guardada correctamente" : "Categoría modificada correctamente";
+                    MessageBox.Show(mensaje, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();

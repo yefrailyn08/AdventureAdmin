@@ -20,6 +20,7 @@ namespace AdventureAdmin.Ui.ProductCategory
             dgvCategorias = new DataGridView();
             refrescarButton = new Button();
             nuevoButton = new Button();
+            modificarButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
             SuspendLayout();
             // 
@@ -36,7 +37,7 @@ namespace AdventureAdmin.Ui.ProductCategory
             // 
             // refrescarButton
             // 
-            refrescarButton.Location = new Point(113, 12);
+            refrescarButton.Location = new Point(213, 12);
             refrescarButton.Name = "refrescarButton";
             refrescarButton.Size = new Size(94, 29);
             refrescarButton.TabIndex = 4;
@@ -54,11 +55,22 @@ namespace AdventureAdmin.Ui.ProductCategory
             nuevoButton.UseVisualStyleBackColor = true;
             nuevoButton.Click += nuevoButton_Click;
             // 
+            // modificarButton
+            // 
+            modificarButton.Location = new Point(113, 12);
+            modificarButton.Name = "modificarButton";
+            modificarButton.Size = new Size(94, 29);
+            modificarButton.TabIndex = 5;
+            modificarButton.Text = "Modificar";
+            modificarButton.UseVisualStyleBackColor = true;
+            modificarButton.Click += modificarButton_Click;
+            // 
             // ProductCategoryList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(633, 426);
+            Controls.Add(modificarButton);
             Controls.Add(refrescarButton);
             Controls.Add(nuevoButton);
             Controls.Add(dgvCategorias);
@@ -75,5 +87,6 @@ namespace AdventureAdmin.Ui.ProductCategory
         private DataGridView dgvCategorias;
         private Button refrescarButton;
         private Button nuevoButton;
+        private Button modificarButton;
     }
 }

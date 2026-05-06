@@ -45,6 +45,23 @@ namespace AdventureAdmin.Ui.ProductCategory
             }
         }
 
+        private async void modificarButton_Click(object sender, EventArgs e)
+        {
+            if (dgvCategorias.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una categoría para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var categoria = (Data.Models.ProductCategory)dgvCategorias.SelectedRows[0].DataBoundItem;
+            var form = new ProductCategoryForm(_productCategoryService, categoria);
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                await RefrescarDatos();
+            }
+        }
+
         private async void refrescarButton_Click(object sender, EventArgs e)
         {
             await RefrescarDatos();
